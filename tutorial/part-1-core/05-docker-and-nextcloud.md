@@ -121,8 +121,9 @@ tailscale serve status
    ```
 
 3. Create a **separate personal account** for daily use (**Accounts → New account**). Keep `admin` for administration only, and log in to it only in the browser.
+4. Log in as the personal account and repeat item 1 for it. 2FA is set per account: turning it on for `admin` doesn't protect anyone else. Do this for every account you create later.
 
-**Check:** log out and log back in. You're asked for a 2FA code.
+**Check:** log out and log back in as each account. Both ask for a 2FA code.
 
 ## Step 7: Connect the apps
 

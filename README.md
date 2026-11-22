@@ -9,4 +9,4 @@ An encrypted, self-hosted alternative to Dropbox or Google Drive that you can re
 - **Part 1 (core):** hardware and OS, SSH, LUKS-encrypted storage, Tailscale, Docker and Nextcloud All-in-One, maintenance and security
 - **Part 2 (bonus):** a custom domain through a cloud proxy, Time Machine backups over SMB, self-hosted Notesnook, and Notesnook on your custom domain
 
-Licensed under the terms in [LICENSE](LICENSE).
+Licensed under the terms in [LICENSE](LICENSE), except [`docker-compose.yml`](tutorial/part-2-bonus/notesnook-files/docker-compose.yml), which is adapted from the Notesnook sync server and stays under AGPL-3.0.

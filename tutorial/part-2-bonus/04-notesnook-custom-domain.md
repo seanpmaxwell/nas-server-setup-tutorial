@@ -195,7 +195,10 @@ To go back to Tailscale-only access:
    ```
 
 2. On each device, log out and enter the `https://<hostname>.<tailnet>:<port>` URLs from bonus 3 again.
-3. Optionally, remove the five Caddy blocks, the wildcard record and the extra ports in the Tailscale policy.
+3. **Close the public route. This step is not optional.** Changing the app URLs doesn't stop the five subdomains from answering. On the Lightsail server, delete the five Notesnook blocks from `/etc/caddy/Caddyfile` and run `sudo systemctl reload caddy`. In the Tailscale policy, set the proxy's grant and `tests` back to the bonus 1 version (port 443 only).
+4. Optionally, delete the wildcard `*.notes` record in Route 53.
+
+**Check:** from a device with Tailscale turned off, `curl -m 10 https://sync.notes.<your-domain>/version` fails, while `https://<your-domain>` still loads Nextcloud.
 
 ## Things to check against upstream
 

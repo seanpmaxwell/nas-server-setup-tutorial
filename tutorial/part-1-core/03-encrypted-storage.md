@@ -46,13 +46,14 @@ sudo cryptsetup luksFormat /dev/sdX1        # type YES in capitals, then set a s
 ## Step 3: Unlock, format and mount
 
 ```bash
-sudo cryptsetup open /dev/sdX1 storage
-sudo mkfs.ext4 -L storage -m 1 /dev/mapper/storage
+sudo cryptsetup open /dev/sdX1 storage && \
+  sudo mkfs.ext4 -L storage -m 1 /dev/mapper/storage
 sudo mkdir -p /mnt/storage
 sudo mount /dev/mapper/storage /mnt/storage
 df -h /mnt/storage
 ```
 
+- The `&&` means the format runs only if the unlock succeeded. If `cryptsetup open` prints an error, stop and fix it; don't run `mkfs.ext4` on its own.
 - `cryptsetup open` unlocks the partition and makes the decrypted version available as `/dev/mapper/storage`.
 - `-m 1` reserves only 1% of the space for the system instead of the default 5%. On large drives this saves hundreds of gigabytes.
 

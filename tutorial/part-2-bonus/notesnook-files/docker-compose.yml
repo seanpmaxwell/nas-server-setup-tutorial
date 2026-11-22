@@ -1,5 +1,10 @@
 # Notesnook sync server — Raspberry Pi 5 edition
 #
+# License: this file is adapted from the Notesnook sync server, which is
+# licensed under AGPL-3.0 (https://github.com/streetwriters/notesnook-sync-server).
+# This file stays under AGPL-3.0; the MIT license of the rest of this
+# repository does not apply to it.
+#
 # Based on the official compose file from
 # https://github.com/streetwriters/notesnook-sync-server (master, Nov 2026)
 # Changes from the official file:

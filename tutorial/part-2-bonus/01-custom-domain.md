@@ -46,7 +46,7 @@ Also make sure:
 
 - **Every computer you manage this from has Tailscale installed and signed in** to the same account as the Pi. If `ping <pi-tailscale-ip>` fails from your laptop, fix that first.
 - **You have the AIO passphrase.** If you've lost it, see chapter 5's troubleshooting.
-- **Your Nextcloud admin account has two-factor login turned on.**
+- **Every Nextcloud account has two-factor login turned on**, not just `admin`. After this bonus, anyone on the internet can try to log in to any account.
 
 ## Part 0: Buy a domain in Route 53
 

@@ -24,6 +24,14 @@ BACKUP_DIR="${BACKUP_DIR:-$NOTESNOOK_DATA_DIR/backups}"
 KEEP_DAYS="${KEEP_DAYS:-14}"
 STAMP="$(date +%Y-%m-%d_%H%M)"
 
+# Refuse to run unless the encrypted drive is really mounted. Otherwise the
+# backup would be written to the microSD card.
+STORAGE_MOUNT="${STORAGE_MOUNT:-/mnt/storage}"
+if [ "$(findmnt -n -o SOURCE --mountpoint "$STORAGE_MOUNT" 2>/dev/null)" != "/dev/mapper/storage" ]; then
+  echo "Backup FAILED: $STORAGE_MOUNT is not the unlocked encrypted drive" >&2
+  exit 1
+fi
+
 command -v rsync >/dev/null || { echo "Backup FAILED: rsync is not installed (sudo apt install -y rsync)" >&2; exit 1; }
 
 mkdir -p "$BACKUP_DIR/db" "$BACKUP_DIR/s3"

@@ -19,10 +19,10 @@ All Pi commands run over SSH.
 Time Machine over Samba needs extended attributes, which ext4 supports. The drive from Part 1 is already ext4 and mounted at `/mnt/storage`, so there's nothing to format.
 
 ```bash
-df -T /mnt/storage
+findmnt --mountpoint /mnt/storage
 ```
 
-**Check:** the `Type` column says `ext4`. If the drive isn't mounted, unlock it first (`unlock-storage`).
+**Check:** one line with `SOURCE` `/dev/mapper/storage` and `FSTYPE` `ext4`. If it prints nothing, the drive isn't mounted, so unlock it first (`unlock-storage`). Don't create any folders until this check passes: without the drive, they'd end up on the microSD card.
 
 ## Step 2: Install Samba and Avahi
 
