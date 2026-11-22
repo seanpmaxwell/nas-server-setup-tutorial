@@ -158,3 +158,5 @@ vite.config.ts.timestamp-*
 
 _raw-notes
 .DS_Store
+
+.kilo
